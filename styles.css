@@ -1311,6 +1311,10 @@ h1, h2, h3, h4, h5, h6 {
     --nav-height: 70px;
   }
 
+  .container {
+    padding: 0 var(--space-md);
+  }
+
   .nav-links {
     position: fixed;
     top: 0;
@@ -1327,6 +1331,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: var(--space-lg);
     transition: right var(--transition-base);
     border-left: 1px solid var(--white-10);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
   }
 
   .nav-links.open {
@@ -1335,10 +1340,16 @@ h1, h2, h3, h4, h5, h6 {
 
   .nav-links a {
     font-size: 1.1rem;
+    width: 100%;
+    padding: var(--space-sm) 0;
   }
 
   .nav-toggle {
     display: flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-content {
@@ -1352,7 +1363,13 @@ h1, h2, h3, h4, h5, h6 {
 
   .hero-actions {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .diferenciais-grid {
@@ -1425,5 +1442,77 @@ h1, h2, h3, h4, h5, h6 {
 
   .hero-title {
     font-size: 2rem;
+  }
+}
+
+/* Fix sticky hover issues on mobile by restricting hover effects to devices that support it */
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold-lg);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold-400);
+    color: var(--gold-400);
+    transform: translateY(-3px);
+    background: var(--white-05);
+  }
+
+  .btn-whatsapp:hover {
+    background: #20BD5A;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+  }
+
+  .diferencial-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold-500);
+    box-shadow: var(--shadow-gold), var(--shadow-md);
+  }
+
+  .diferencial-card:hover .diferencial-icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .sobre-image:hover img {
+    transform: scale(1.05);
+  }
+
+  .produto-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold-500);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .produto-card:hover::after {
+    opacity: 1;
+  }
+
+  .galeria-item:hover img {
+    transform: scale(1.1);
+  }
+
+  .galeria-item:hover::after {
+    opacity: 1;
+  }
+
+  .galeria-item:hover .zoom-icon {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .depoimento-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold-500);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .footer-social a:hover {
+    background: var(--gold-500);
+    color: var(--green-900);
+    border-color: var(--gold-500);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold);
   }
 }
